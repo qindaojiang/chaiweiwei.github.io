@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Title的区别 | vivi的蜡笔小男神</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="self.title重中之重，之前在学习的时候都没有发现这个小细节，self.navigationItem.title，self.tabBarItem.title，self.title的区别。一般设置nav Controller的title的时候就直接使用self.title，这是完全能满足需求的，但是随着app项目的“复杂”化，比如这里需要tabbar的title是“动态”，但是当前的nav c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Title的区别">
+<meta property="og:url" content="https://github.com/chaiweiwei/2015/12/03/Title-qubie/index.html">
+<meta property="og:site_name" content="vivi的蜡笔小男神">
+<meta property="og:description" content="self.title重中之重，之前在学习的时候都没有发现这个小细节，self.navigationItem.title，self.tabBarItem.title，self.title的区别。一般设置nav Controller的title的时候就直接使用self.title，这是完全能满足需求的，但是随着app项目的“复杂”化，比如这里需要tabbar的title是“动态”，但是当前的nav c">
+<meta property="og:updated_time" content="2016-03-02T06:18:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Title的区别">
+<meta name="twitter:description" content="self.title重中之重，之前在学习的时候都没有发现这个小细节，self.navigationItem.title，self.tabBarItem.title，self.title的区别。一般设置nav Controller的title的时候就直接使用self.title，这是完全能满足需求的，但是随着app项目的“复杂”化，比如这里需要tabbar的title是“动态”，但是当前的nav c">
+  
+    <link rel="alternate" href="/atom.xml" title="vivi的蜡笔小男神" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">vivi的蜡笔小男神</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/chaiweiwei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Title-qubie" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/03/Title-qubie/" class="article-date">
+  <time datetime="2015-12-03T04:03:14.000Z" itemprop="datePublished">2015-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jekyll-update/">jekyll update</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Title的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="self-title"><a href="#self-title" class="headerlink" title="self.title"></a>self.title</h3><p>重中之重，之前在学习的时候都没有发现这个小细节，self.navigationItem.title，self.tabBarItem.title，self.title的区别。一般设置nav Controller的title的时候就直接使用self.title，这是完全能满足需求的，但是随着app项目的“复杂”化，比如这里需要tabbar的title是“动态”，但是当前的nav controller的title钥匙“普吉岛”，我但是也没细想啊<code>self.title=@&quot;普吉岛&quot;</code>不就好了，但是发现tabbar的title从动态也变成“普吉岛”，原来是因为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当self.navigationItem.title，self.tabBarItem.title没有赋值情况下值和self.title一致。</span><br></pre></td></tr></table></figure>
+<p>解决方案:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.title = @&quot;Title for TabBarItem&quot;; // TabBarItem.title inherits the viewController&apos;s self.title</span><br><span class="line">self.navigationItem.title = @&quot;Title for NavigationBar&quot;;</span><br></pre></td></tr></table></figure>
+<p><a href="http://stackoverflow.com/questions/1540718/self-title-sets-navigationcontroller-and-tabbaritems-title-why" target="_blank" rel="external">参考链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/chaiweiwei/2015/12/03/Title-qubie/" data-id="cilal0azv00099ks66v027mx1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/03/Autolayout_Animation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Autolayout Animation
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/03/Translucent-TabBar/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Translucent TabBar</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jekyll-update/">jekyll update</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日报/">日报</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/23/newyear/">新年开篇日</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/29/new-work/">2016 new work</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/jspatch/">JSPatch问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/12/disanfangjiehuan/">第三方App切换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/04/zidingyiqiehuan/">自定义切换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chaiweiwei~vivi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

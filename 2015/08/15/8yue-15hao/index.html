@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>8月15号 | vivi的蜡笔小男神</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近相比较之前是更新的快的，haha，最近因为项目上的新需求，花了1、2天调整和测试，是一个多功能的搜索页，结构看上去是简单的，主要还是要考虑到是在之前代码上补充的功能，所以要特别的注意代码的优化，还有就是用户的搜索历史纪录，因为搜索的逻辑不同了,要做好适配之前用户的搜索记录，这里有三个细节方面的小插曲：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8月15号">
+<meta property="og:url" content="https://github.com/chaiweiwei/2015/08/15/8yue-15hao/index.html">
+<meta property="og:site_name" content="vivi的蜡笔小男神">
+<meta property="og:description" content="最近相比较之前是更新的快的，haha，最近因为项目上的新需求，花了1、2天调整和测试，是一个多功能的搜索页，结构看上去是简单的，主要还是要考虑到是在之前代码上补充的功能，所以要特别的注意代码的优化，还有就是用户的搜索历史纪录，因为搜索的逻辑不同了,要做好适配之前用户的搜索记录，这里有三个细节方面的小插曲：">
+<meta property="og:updated_time" content="2016-01-25T03:27:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="8月15号">
+<meta name="twitter:description" content="最近相比较之前是更新的快的，haha，最近因为项目上的新需求，花了1、2天调整和测试，是一个多功能的搜索页，结构看上去是简单的，主要还是要考虑到是在之前代码上补充的功能，所以要特别的注意代码的优化，还有就是用户的搜索历史纪录，因为搜索的逻辑不同了,要做好适配之前用户的搜索记录，这里有三个细节方面的小插曲：">
+  
+    <link rel="alternate" href="/atom.xml" title="vivi的蜡笔小男神" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">vivi的蜡笔小男神</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/chaiweiwei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-8yue-15hao" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/15/8yue-15hao/" class="article-date">
+  <time datetime="2015-08-15T05:53:58.000Z" itemprop="datePublished">2015-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      8月15号
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近相比较之前是更新的快的，haha，最近因为项目上的新需求，花了1、2天调整和测试，是一个多功能的搜索页，结构看上去是简单的，主要还是要考虑到是在之前代码上补充的功能，所以要特别的注意代码的优化，还有就是用户的搜索历史纪录，因为搜索的逻辑不同了,要做好适配之前用户的搜索记录，这里有三个细节方面的小插曲：</p>
+<a id="more"></a>
+<p>一、UITableView’s style</p>
+<p>增加的功能是在之前的SearchController中添加的，恰好我发现从父类中继承过来的tableview的style是plain，plain有一个特性，当表有headerView和footerView的时候，他们会在表向下滑动的时候当前section的headerView会挂住，footerView也是同理，这样就麻烦了，因为这次设计中搜索出来的类型有3到4个，如果出现挂住的体验，我感觉是不太好看的，而且加上tabbar的影响，下面会讲到，footview挂住的位置会在隐藏的tabbar之上，看上去体验不好，所以我思考下，就将headerView和footerView改成了Cell，这样做要注意row的加1和减1，因为数据数组的原因，这样就不用将plain类型改成group了，不在创建新tableview的情况下。</p>
+<p>二、Tabbar和ToolBar</p>
+<p>求攻略中跳转页面还是复杂的，但用户使用起来是方便的，这就苦了程序猿了，像之前blog中写的关于hidesBottomBarWhenPushed的内容，这次又遇到了隐藏tabbar的问题，因为tabbar在我点击搜索结果跳转的时候会在不该显示的时候显示，因为这次还是涉及到了三个以上的跳转层级，所以用了师傅之前的方法，在需要隐藏tabbar的页面直接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.tabBarController.tabBar.hidden = YES</span><br></pre></td></tr></table></figure>
+<p>一开始测试的时候发现还是能解决一部分的问题的，但是当我二次跳转到有ToolBar存在的poi内容的时候，发现ToolBar展示在离底部还有一个tabBar高度的地方，这下我就意识到tabBar.hidden 这样的方式和self.hidesBottomBarWhenPushed的区别了，所以要彻底解决这个问题,除了隐藏tabBar，还需要hidesBottomBarWhenPushed的配合，将BottomBar也隐藏了，不然会出现toolbar悬空的情况，因为这个搜索页在两个地方都出现了，但是push过来的materviewController不一样，一个有tabbar,一个没有，在第二个materviewController中不写hidesBottomBarWhenPushed时没有问题的，因为本来就是隐藏的，但是第一个materviewController不一样，我需要再做一个property，来做标记，这下能解决问题了，想到tabbar还是有点头疼呢。下面的国内博客对Tabbar和ToolBar描述还是仔细的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://blog.csdn.net/duxinfeng2010/article/details/7707960</span><br></pre></td></tr></table></figure>
+<p>三、searchBar clear</p>
+<p>在测试的时候发现几个搜索方面的体验不太好，主要是是clear的动作不好隐藏键盘，在网上有解决方案，完美解决啊，原以为在textDidChange回调方法中也用resignFirstResponder就可以了，其实在当我们点击clear调用textDidChange的时候，searchBar还没有变成first responder第一响应者，所以又何来取消呢，只能另辟蹊径了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">@interface SearchViewController : UIViewController &lt;UISearchBarDelegate&gt; &#123;</span><br><span class="line">    // all of our ivar declarations go here...</span><br><span class="line">    BOOL shouldBeginEditing;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@implementation SearchViewController</span><br><span class="line">...</span><br><span class="line">- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil &#123;</span><br><span class="line">    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) &#123;</span><br><span class="line">        ...</span><br><span class="line">        shouldBeginEditing = YES;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">@end</span><br><span class="line">Later on, in the UISearchBarDelegate, we implement the searchBar:textDidChange: and searchBarShouldBeginEditing: methods:</span><br><span class="line"></span><br><span class="line">- (void)searchBar:(UISearchBar *)bar textDidChange:(NSString *)searchText &#123;</span><br><span class="line">    NSLog(@&quot;searchBar:textDidChange: isFirstResponder: %i&quot;, [self.searchBar isFirstResponder]);</span><br><span class="line">    if(![searchBar isFirstResponder]) &#123;</span><br><span class="line">        // user tapped the &apos;clear&apos; button</span><br><span class="line">        shouldBeginEditing = NO;</span><br><span class="line">        // do whatever I want to happen when the user clears the search...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)bar &#123;</span><br><span class="line">    // reset the shouldBeginEditing BOOL ivar to YES, but first take its value and use it to return it from the method call</span><br><span class="line">    BOOL boolToReturn = shouldBeginEditing;</span><br><span class="line">    shouldBeginEditing = YES;</span><br><span class="line">    return boolToReturn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/chaiweiwei/2015/08/15/8yue-15hao/" data-id="cilal0azg00039ks6qgl1ijk5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/20/8yue-20ri-qi-xi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          8月20日 七夕
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/12/8yue-12/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">8月12</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jekyll-update/">jekyll update</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日报/">日报</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/23/newyear/">新年开篇日</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/29/new-work/">2016 new work</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/jspatch/">JSPatch问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/12/disanfangjiehuan/">第三方App切换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/04/zidingyiqiehuan/">自定义切换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chaiweiwei~vivi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

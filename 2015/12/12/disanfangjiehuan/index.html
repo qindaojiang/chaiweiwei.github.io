@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第三方App切换 | vivi的蜡笔小男神</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们现在的求攻略系列的app就有64个，现在有新增的离线地图和三个国家攻略，国家攻略主要是我在制作，其实也就是在本来的基础上增加target，要小心注意的info文件和URL type的信息修改。我就在这里又不小心跌了一跤。
+我们的app有一个分享跳转的问题，主要出现在tencent的sdk上，当分享切换的时候不能准确的回到原先的app，这里设置了几个URL type，外部可以通过设置的schem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三方App切换">
+<meta property="og:url" content="https://github.com/chaiweiwei/2015/12/12/disanfangjiehuan/index.html">
+<meta property="og:site_name" content="vivi的蜡笔小男神">
+<meta property="og:description" content="我们现在的求攻略系列的app就有64个，现在有新增的离线地图和三个国家攻略，国家攻略主要是我在制作，其实也就是在本来的基础上增加target，要小心注意的info文件和URL type的信息修改。我就在这里又不小心跌了一跤。
+我们的app有一个分享跳转的问题，主要出现在tencent的sdk上，当分享切换的时候不能准确的回到原先的app，这里设置了几个URL type，外部可以通过设置的schem">
+<meta property="og:updated_time" content="2016-01-25T03:27:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第三方App切换">
+<meta name="twitter:description" content="我们现在的求攻略系列的app就有64个，现在有新增的离线地图和三个国家攻略，国家攻略主要是我在制作，其实也就是在本来的基础上增加target，要小心注意的info文件和URL type的信息修改。我就在这里又不小心跌了一跤。
+我们的app有一个分享跳转的问题，主要出现在tencent的sdk上，当分享切换的时候不能准确的回到原先的app，这里设置了几个URL type，外部可以通过设置的schem">
+  
+    <link rel="alternate" href="/atom.xml" title="vivi的蜡笔小男神" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">vivi的蜡笔小男神</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/chaiweiwei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-disanfangjiehuan" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/12/disanfangjiehuan/" class="article-date">
+  <time datetime="2015-12-12T04:03:14.000Z" itemprop="datePublished">2015-12-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jekyll-update/">jekyll update</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第三方App切换
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们现在的求攻略系列的app就有64个，现在有新增的离线地图和三个国家攻略，国家攻略主要是我在制作，其实也就是在本来的基础上增加target，要小心注意的info文件和URL type的信息修改。我就在这里又不小心跌了一跤。</p>
+<p>我们的app有一个分享跳转的问题，主要出现在tencent的sdk上，当分享切换的时候不能准确的回到原先的app，这里设置了几个URL type，外部可以通过设置的scheme来启动app，拿新浪和QQ来说，这两个主要用在了第三方登录上：</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>URL type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sina</td>
+<td>sinaweibo+Bundle name</td>
+</tr>
+<tr>
+<td>qq</td>
+<td>tencent+(key)100274236</td>
+</tr>
+</tbody>
+</table>
+<p>上面列出的规则就能发现新浪的标识肯定是不会出现跳转混乱的问题的，但是QQ的URL，因为我们分攻略的数量太多了，针对一个app去申请1个可以好像有一点点不合理呢，所以这个key可能是4、5个app共用的。</p>
+<p>为了解决这个问题，解决方案就是当是QQ登录的时候使用web版，不跳转到QQ App,新浪的第三方登录就没有关系，但我在创建韩国、日本、泰国攻略三个国家攻略的时候没有去设置info.plist文件，以为target是copy过来的，新浪的scheme还保留了：sinaweibo＋(old).</p>
+<p>分析问题才能解决问题啊。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/chaiweiwei/2015/12/12/disanfangjiehuan/" data-id="cilal0azy000a9ks6ftksy55w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/29/jspatch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JSPatch问题总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/04/zidingyiqiehuan/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">自定义切换</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jekyll-update/">jekyll update</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日报/">日报</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/23/newyear/">新年开篇日</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/29/new-work/">2016 new work</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/jspatch/">JSPatch问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/12/disanfangjiehuan/">第三方App切换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/04/zidingyiqiehuan/">自定义切换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chaiweiwei~vivi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

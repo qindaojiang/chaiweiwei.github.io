@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>自定义切换 | vivi的蜡笔小男神</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="昨天无意间在玩耍新版“花瓣app”的时候，发现了一个之前没有看到过的控制器切换的效果（主要也是因为自己的知识储备不够），点击花瓣的瀑布流式cell,新的控制器是从点击位置放大直填充屏幕，展示一个新的控制器界面。还有添加了一个手势，当在新界面做左右手势的时候，展示的是上一个/下一个cell详情。总的来说使用的还是挺流畅的，当时我就想也尝试一个，但是不知道是怎么实现的，其实在iOS7中已经支持了：自定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义切换">
+<meta property="og:url" content="https://github.com/chaiweiwei/2015/12/04/zidingyiqiehuan/index.html">
+<meta property="og:site_name" content="vivi的蜡笔小男神">
+<meta property="og:description" content="昨天无意间在玩耍新版“花瓣app”的时候，发现了一个之前没有看到过的控制器切换的效果（主要也是因为自己的知识储备不够），点击花瓣的瀑布流式cell,新的控制器是从点击位置放大直填充屏幕，展示一个新的控制器界面。还有添加了一个手势，当在新界面做左右手势的时候，展示的是上一个/下一个cell详情。总的来说使用的还是挺流畅的，当时我就想也尝试一个，但是不知道是怎么实现的，其实在iOS7中已经支持了：自定">
+<meta property="og:updated_time" content="2016-01-25T03:27:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义切换">
+<meta name="twitter:description" content="昨天无意间在玩耍新版“花瓣app”的时候，发现了一个之前没有看到过的控制器切换的效果（主要也是因为自己的知识储备不够），点击花瓣的瀑布流式cell,新的控制器是从点击位置放大直填充屏幕，展示一个新的控制器界面。还有添加了一个手势，当在新界面做左右手势的时候，展示的是上一个/下一个cell详情。总的来说使用的还是挺流畅的，当时我就想也尝试一个，但是不知道是怎么实现的，其实在iOS7中已经支持了：自定">
+  
+    <link rel="alternate" href="/atom.xml" title="vivi的蜡笔小男神" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">vivi的蜡笔小男神</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/chaiweiwei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-zidingyiqiehuan" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/04/zidingyiqiehuan/" class="article-date">
+  <time datetime="2015-12-04T04:03:14.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jekyll-update/">jekyll update</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      自定义切换
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天无意间在玩耍新版“花瓣app”的时候，发现了一个之前没有看到过的控制器切换的效果（主要也是因为自己的知识储备不够），点击花瓣的瀑布流式cell,新的控制器是从点击位置放大直填充屏幕，展示一个新的控制器界面。还有添加了一个手势，当在新界面做左右手势的时候，展示的是上一个/下一个cell详情。总的来说使用的还是挺流畅的，当时我就想也尝试一个，但是不知道是怎么实现的，其实在iOS7中已经支持了：自定义切换。我是在search一个<a href="http://onevcat.com/2013/10/vc-transition-in-ios7/" target="_blank" rel="external">大神的blog</a>的时候发现的。今天就花了点时间好好整理了一下，主要是分成两种情况和API，代码在我几近折腾的情况下提交上了<a href="https://github.com/chaiweiwei/CustomPresentationDemo">Github</a>：</p>
+<p>1.demo中只展示了对于modalVC的present和dismiss的自定义切换效果:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIViewControllerTransitioningDelegate</span><br></pre></td></tr></table></figure>
+<p>2.Navigation Controller的Push和Pop切换:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UINavigationControllerDelegate</span><br></pre></td></tr></table></figure>
+<p>PS:这里要提及的是iOS8在iOS7的基础上增加了一个API：UIPresentationController，我也将其整理到项目中。</p>
+<p><a href="https://www.objc.io/issues/5-ios7/view-controller-transitions/" target="_blank" rel="external">UINavigationController Push And Pop参考链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/chaiweiwei/2015/12/04/zidingyiqiehuan/" data-id="cilal0b0d000t9ks62d4xdn86" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/12/disanfangjiehuan/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第三方App切换
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/03/otocpressfangqi-Jekyllgengshang/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">otocpress放弃  Jekyll跟上</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jekyll-update/">jekyll update</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日报/">日报</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/23/newyear/">新年开篇日</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/29/new-work/">2016 new work</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/jspatch/">JSPatch问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/12/disanfangjiehuan/">第三方App切换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/04/zidingyiqiehuan/">自定义切换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chaiweiwei~vivi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Translucent TabBar | vivi的蜡笔小男神</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在修改tabbar icon的时候发现之前tabbar在translucent上的一个bug，现在新的icon底色是白色的，之前还能不理会这个问题，看上去问题不到，现在是白色的底色，问题就被放大了，在反复检查下发现是因为UITabBar的translucent属性造成的，现在当我将值设置为NO的时候，是能完美的解决icon的问题但是会造成一个比较严重的问题，因为app中有几个viewcontrol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Translucent TabBar">
+<meta property="og:url" content="https://github.com/chaiweiwei/2015/12/03/Translucent-TabBar/index.html">
+<meta property="og:site_name" content="vivi的蜡笔小男神">
+<meta property="og:description" content="在修改tabbar icon的时候发现之前tabbar在translucent上的一个bug，现在新的icon底色是白色的，之前还能不理会这个问题，看上去问题不到，现在是白色的底色，问题就被放大了，在反复检查下发现是因为UITabBar的translucent属性造成的，现在当我将值设置为NO的时候，是能完美的解决icon的问题但是会造成一个比较严重的问题，因为app中有几个viewcontrol">
+<meta property="og:updated_time" content="2016-01-25T03:27:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Translucent TabBar">
+<meta name="twitter:description" content="在修改tabbar icon的时候发现之前tabbar在translucent上的一个bug，现在新的icon底色是白色的，之前还能不理会这个问题，看上去问题不到，现在是白色的底色，问题就被放大了，在反复检查下发现是因为UITabBar的translucent属性造成的，现在当我将值设置为NO的时候，是能完美的解决icon的问题但是会造成一个比较严重的问题，因为app中有几个viewcontrol">
+  
+    <link rel="alternate" href="/atom.xml" title="vivi的蜡笔小男神" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">vivi的蜡笔小男神</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/chaiweiwei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Translucent-TabBar" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/03/Translucent-TabBar/" class="article-date">
+  <time datetime="2015-12-03T04:03:14.000Z" itemprop="datePublished">2015-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jekyll-update/">jekyll update</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Translucent TabBar
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在修改tabbar icon的时候发现之前tabbar在translucent上的一个bug，现在新的icon底色是白色的，之前还能不理会这个问题，看上去问题不到，现在是白色的底色，问题就被放大了，在反复检查下发现是因为UITabBar的<code>translucent</code>属性造成的，现在当我将值设置为NO的时候，是能完美的解决icon的问题但是会造成一个比较严重的问题，因为app中有几个viewcontroller有<code>滑动动作tabbar展示的动画</code>，可以测试一下，当translucent=NO时，viewcontroller滑动，tabbar向下缩的时候会造成tabbar位置变成黑色背景了，tableView没有自动布局到地步，解决方案是</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">viewController.extendedLayoutIncludesOpaqueBars = <span class="literal">YES</span>;</span><br><span class="line">viewController.edgesForExtendedLayout = <span class="built_in">UIRectEdgeBottom</span>;</span><br></pre></td></tr></table></figure>
+<p>属性<code>extendedLayoutIncludesOpaqueBars</code>可以从字面上翻译成延伸不仅包括透明的bar，我在<a href="http://stackoverflow.com/questions/20979281/ios-7-tabbar-translucent-issue" target="_blank" rel="external">参考链接</a>中看到一句话：</p>
+<blockquote>
+<p>This happens in iOS7 when you set tabBar.translucent to NO. iOS is trying to be smart and say “hey the tabbar is not translucent so we better push everything up on top of it”. Fix it by setting the extendedLayoutIncludesOpaqueBars property of the view controller inside the navigation controller which is inside the tabbar controller to YES.</p>
+</blockquote>
+<p>翻译成:</p>
+<p>这样的情况会发生在iOS7中，当设置tabBar.translucent为NO, iOS试图自作聪明，认为这里的tabbar是不透明的，所以我们最好将所有的东西都推到顶部，修复这个问题是将在navigation controller中的view controller属性extendedLayoutIncludesOpaqueBars设置成YES</p>
+<p>这样做就能将我们tabbar位置上黑色背景的问题修复好了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/chaiweiwei/2015/12/03/Translucent-TabBar/" data-id="cilal0b00000c9ks6sedmg40x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/03/Title-qubie/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Title的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/24/wikiri-bao-nei-rong-qian-yi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">wiki日报内容迁移</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jekyll-update/">jekyll update</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日报/">日报</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/23/newyear/">新年开篇日</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/29/new-work/">2016 new work</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/jspatch/">JSPatch问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/12/disanfangjiehuan/">第三方App切换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/04/zidingyiqiehuan/">自定义切换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chaiweiwei~vivi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

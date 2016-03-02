@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>8月12 | vivi的蜡笔小男神</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近项目也没有什么新的需求，就在做一些查漏补缺的地方，着重是在看一些动画方面的好事例，可以应用到求攻略上面的，顺便学习、实践一下，code4app网站上还是有不少的好代码，不过很多在Github上也有提供链接。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8月12">
+<meta property="og:url" content="https://github.com/chaiweiwei/2015/08/12/8yue-12/index.html">
+<meta property="og:site_name" content="vivi的蜡笔小男神">
+<meta property="og:description" content="最近项目也没有什么新的需求，就在做一些查漏补缺的地方，着重是在看一些动画方面的好事例，可以应用到求攻略上面的，顺便学习、实践一下，code4app网站上还是有不少的好代码，不过很多在Github上也有提供链接。">
+<meta property="og:updated_time" content="2016-01-25T03:27:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="8月12">
+<meta name="twitter:description" content="最近项目也没有什么新的需求，就在做一些查漏补缺的地方，着重是在看一些动画方面的好事例，可以应用到求攻略上面的，顺便学习、实践一下，code4app网站上还是有不少的好代码，不过很多在Github上也有提供链接。">
+  
+    <link rel="alternate" href="/atom.xml" title="vivi的蜡笔小男神" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">vivi的蜡笔小男神</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/chaiweiwei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-8yue-12" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/12/8yue-12/" class="article-date">
+  <time datetime="2015-08-12T07:48:21.000Z" itemprop="datePublished">2015-08-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      8月12
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近项目也没有什么新的需求，就在做一些查漏补缺的地方，着重是在看一些动画方面的好事例，可以应用到求攻略上面的，顺便学习、实践一下，code4app网站上还是有不少的好代码，不过很多在Github上也有提供链接。</p>
+<a id="more"></a>
+<p>因为最近看的代码也是多的，感触也是大家的代码都写的好干净的，不过也存在因为展示事例简单的原因吧，这里补充一点UITableView上的属性，之前没有接触到过，现在想想也是厉害的：</p>
+<p> 一、cell计算高度补充</p>
+<p>这样能自动的进行cell高度的适配不用特地计算了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 经过测试，实际表现及运行效率均相似，大👍</span><br><span class="line">tableView.estimatedRowHeight = 80</span><br><span class="line">tableView.rowHeight = UITableViewAutomaticDimension</span><br></pre></td></tr></table></figure>
+<p>以上是一个小点的补充，实际应用中如果涉及到UILabel不要忘了设置lineNume哦。</p>
+<p>二、像素化</p>
+<p>下面总结一下我在练习动画的时候一直比较困惑的地方吧，一开始在学习layer的时候，多处都讲到了关于像素的问题，有的时候会出现一些锯齿，这里分情况可以用两种方式来解决一下：</p>
+<ol>
+<li>contentsScale :layer是可以填充content的，必将常用是添加个图片什么的，当没有设置frame的时候，没有很好的使content适应图层的情况下，图片是很有可能出现放大，出现锯齿的情况的，这样就要设置好像素值［UISreen main］.scale。根据屏幕的像素来绘制图片内容。</li>
+<li>shouldRasterize :我是翻译成“栅格化”的，在使用shouldRasterize的时候一定要配合使用rasterizationScale，以防止出现Retina屏幕像素化的问题。</li>
+<li>rasterizationScale :我现在也只有在处理组合透明度动画的时候才用到，作用是图层及其子图层都会被整合成一个整体的图片，解决重叠透明图层的混合失灵问题。</li>
+</ol>
+<p>三、消息传递方法</p>
+<p>之前在看动画的时候，看到了一段代码，能代替计时器不断的调用方法,将该段代码写在方法体内，就能起到不断调用，直到终止动作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//_cmd是隐藏的参数，代表当前方法的selector</span><br><span class="line">[self performSelector:_cmd withObject:aLayer afterDelay:0.05];</span><br></pre></td></tr></table></figure>
+<p>四、动画误区</p>
+<p>在学习动画基础属性的时候做的例子可能迟钝的我发现不了这个点，但是当我试图将其应用到求攻略上时总是出现一些意想不到的问题，比如，当我在处理点赞动作的时候，希望能呈现心心能由大缩放到位置上，但是在动画结束后，心心的大小不是我设置的tovalue的0.5倍，而是原始大小，之前不论是直接在uiview上做动画还是用第三方“Pop”做动画，toValue都是最终的状态，但是在layer上做动画，发现其实一切都是浮云，动画就只是动画，不会对对象产生影响，所以要做最后需要“移除”的动作的，我们可以在创建layer的时候就设置opacity＝0,通过动画的frameValue和toValue来做动画，最终动画完成后layer还是隐藏的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/chaiweiwei/2015/08/12/8yue-12/" data-id="cilal0aza00019ks6e9ln60c3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/15/8yue-15hao/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          8月15号
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/06/8yue-6ri/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">8月6日</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jekyll-update/">jekyll update</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日报/">日报</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/23/newyear/">新年开篇日</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/29/new-work/">2016 new work</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/jspatch/">JSPatch问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/12/disanfangjiehuan/">第三方App切换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/04/zidingyiqiehuan/">自定义切换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chaiweiwei~vivi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>otocpress放弃  Jekyll跟上 | vivi的蜡笔小男神</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="otocpress 填坑之前blog关闭了一段时间，一位otocpress搭建的环境坏了，一直generate 失败，多少有点打击积极性的，后来一直在写还是不写中纠结，前几天一直在网上搜罗修复问题，因为mac系统升级EI，有一些环境需要更新，这边有一个比较大，也是经常出现的问题，因为网上能搜罗到（哈哈哈）：
+1.octopress Errno::ENOENT: No such file or di">
+<meta property="og:type" content="article">
+<meta property="og:title" content="otocpress放弃  Jekyll跟上">
+<meta property="og:url" content="https://github.com/chaiweiwei/2015/12/03/otocpressfangqi-Jekyllgengshang/index.html">
+<meta property="og:site_name" content="vivi的蜡笔小男神">
+<meta property="og:description" content="otocpress 填坑之前blog关闭了一段时间，一位otocpress搭建的环境坏了，一直generate 失败，多少有点打击积极性的，后来一直在写还是不写中纠结，前几天一直在网上搜罗修复问题，因为mac系统升级EI，有一些环境需要更新，这边有一个比较大，也是经常出现的问题，因为网上能搜罗到（哈哈哈）：
+1.octopress Errno::ENOENT: No such file or di">
+<meta property="og:updated_time" content="2016-03-02T06:21:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="otocpress放弃  Jekyll跟上">
+<meta name="twitter:description" content="otocpress 填坑之前blog关闭了一段时间，一位otocpress搭建的环境坏了，一直generate 失败，多少有点打击积极性的，后来一直在写还是不写中纠结，前几天一直在网上搜罗修复问题，因为mac系统升级EI，有一些环境需要更新，这边有一个比较大，也是经常出现的问题，因为网上能搜罗到（哈哈哈）：
+1.octopress Errno::ENOENT: No such file or di">
+  
+    <link rel="alternate" href="/atom.xml" title="vivi的蜡笔小男神" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">vivi的蜡笔小男神</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/chaiweiwei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-otocpressfangqi-Jekyllgengshang" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/03/otocpressfangqi-Jekyllgengshang/" class="article-date">
+  <time datetime="2015-12-03T06:02:14.000Z" itemprop="datePublished">2015-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jekyll-update/">jekyll update</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      otocpress放弃  Jekyll跟上
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="otocpress-填坑"><a href="#otocpress-填坑" class="headerlink" title="otocpress 填坑"></a>otocpress 填坑</h3><p>之前blog关闭了一段时间，一位otocpress搭建的环境坏了，一直generate 失败，多少有点打击积极性的，后来一直在写还是不写中纠结，前几天一直在网上搜罗修复问题，因为mac系统升级EI，有一些环境需要更新，这边有一个比较大，也是经常出现的问题，因为网上能搜罗到（哈哈哈）：</p>
+<p>1.octopress Errno::ENOENT: No such file or directory - compass:<br>这个问题找了好久，我这边问题出现的原因是ruby需要更新成2.2.3，<code>ruby --v</code>显示仍然是2.2.0</p>
+<p>解决方案：</p>
+<pre><code>brew update
+rvm install ruby-2.2.3
+</code></pre><p>重新查看<code>ruby --version</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]</span><br></pre></td></tr></table></figure>
+<p>这里提供了一个<a href="http://schalkneethling.github.io/blog/2015/10/16/errno-enoent-no-such-file-or-directory-jekyll-octopress-el-capitan/" target="_blank" rel="external">参考链接</a>但是它提供的参考命令我这边部分没有效果，都是一点点折腾。</p>
+<p>当<code>rake generate</code>成功后好兴奋啊，<code>rake preview</code>查看本地4000，完美，但是一个坑又来了，当我导入之前写的blog的时候，出现了一个大bug，导致我之后还是选择Jeklly：</p>
+<p>2.Pygments can’t parse unknown language:</p>
+<p>有的人说是因为python要更新成3.5最新，有的人说当python版本是3.＊的时候会出现这个问题，要将python降成2.＊,反正就是有各种的问题，导致我的otocpress环境还是搭建不成功，不知道是这几天的杭州雾霾还是因为要修复blog让我头重脚轻的。</p>
+<h3 id="Jekyll环境搭建"><a href="#Jekyll环境搭建" class="headerlink" title="Jekyll环境搭建"></a>Jekyll环境搭建</h3><p>Jekyll安装起来是很简单的，但是当我将源文件上传github的时候，发现<code>Jekyll preview</code>预览时OK的，但是<a href="http://chaiwiewei.github.io总是404，当我仔细检查提交记录的时候发现就是没有index.html文件，没有首页。真的好奇怪，一直没有找到原因，我用了sourcetree工具也试了，命令的方式" target="_blank" rel="external">http://chaiwiewei.github.io总是404，当我仔细检查提交记录的时候发现就是没有index.html文件，没有首页。真的好奇怪，一直没有找到原因，我用了sourcetree工具也试了，命令的方式</a> <code>git add</code>也试了，index.html在目录下就是不能提交上，像一个幽灵文件一下，好吧，一定要强制add <code>git add -f index.html</code>,结局是好的，就是不知道是什么原因引起的。现在正在紧锣密鼓的将记录在本地的问题整理到blog上呢。。。。。。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/chaiweiwei/2015/12/03/otocpressfangqi-Jekyllgengshang/" data-id="cilal0b08000m9ks6fsll6f80" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/04/zidingyiqiehuan/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自定义切换
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/03/Autolayout_Animation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Autolayout Animation</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jekyll-update/">jekyll update</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日报/">日报</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/23/newyear/">新年开篇日</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/29/new-work/">2016 new work</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/jspatch/">JSPatch问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/12/disanfangjiehuan/">第三方App切换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/04/zidingyiqiehuan/">自定义切换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chaiweiwei~vivi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
