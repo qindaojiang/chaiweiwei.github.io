@@ -1,0 +1,76 @@
+---
+layout: post
+title: "7月27日"
+date: 2015-07-27 17:05:43 +0800
+comments: true
+categories: 
+---
+
+这次app又迎来一次大改动啊，反正对我来说，感觉是蛮大的，其中遇到很多问题，折腾的蛮久的，虽然最终也不是我搞定的，哈哈。
+
+### 1.结构上的改动
+
+底部tabbar中的“目的地”不要了，变成首页Web中的一个功能模块，因为项目功能上的需求，需要对tabBar继续“四级”页面以上的隐藏与显示展示，这个想想也是有难度啊，况且之前在使用`hidesBottomBarWhenPushed`的时候也是它认识我，我对他不熟啊，现在有这个需求，想要蒙混过关是不可能的，想要对`hidesBottomBarWhenPushed`的使用优深入的了解。
+
+<!--more -->
+
+```
+    self.hidesBottomBarWhenPushed = YES;               
+    [self.navigationController pushViewController:controller animated:YES]; 
+    self.hidesBottomBarWhenPushed = NO;
+```
+
+可以看到上面这段代码，一般hidesBottomBarWhenPushed都是成双成对的，可以讲代码分解成三句话:
+
+    1. A控制器push到B控制器，B的BottomBar需要隐藏hiden。
+    2. A开始push操作.
+    3. A控制器不要隐藏BottomBar，hiden = NO.
+
+extra:
+
+如果只写了第一条，没有写第三条代码，相当与self的BottomBar保持原有的隐藏和显示状态
+
+### 2.新建app
+应新产品的需求需要新建一个新的app，在原有代码上修改，因为大部分内容是一样的，这里我新接触了两个内容：target和宏的使用，超级好用啊
+
+1. target
+之前需要创建一个应用的时候一定是通过新建项目的方式啦，这边因为使用主攻略和分攻略在同一套代码中，而且分攻略数量“庞大”啊，所以target是最好的选择啊:
+
+> Targets that define the products to build. A target organizes the files and instructions needed to build a product into a sequence of build actions that can be taken
+> 
+
+可以理解成的是每个target都是一个工程，共用一套代码,相互之间用编译设置（条件）和关联资源来区别，这时就需要用到宏，用来在程序预编译的时候就能用一套代码区分多个app。
+
+2. 宏
+target的宏设置的位置在build setting中，找到如下位置：
+![setting](/assets/build_setting.png)
+
+在使用的时候使用`#if 宏名称  #endif`来描述就OK啦，想想真是美好啊但是if elseif 的数量太多也是揪心的。
+
+3. icon色调
+有的时候需要改变其中一些icon的颜色，毕竟是同系列的应用，整体布局是相思的，色调会有所不同，这样的情况下，我首先想到的就是UI再做一套icon嘛，注意用target的时候关联的image，但是设计师也很忙啊，码农就是能用代码解决的就尽量code吧，后来在师傅的提示下可以用tintcolor来解决这个问题，网上搜一下解决方案很多嘛，这里按我的时候习惯总结一下吧：
+
+1. UIImage:
+
+```
+UIImage *image = [UIImage alloc] init];
+image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        _rightIconItem.tintColor = [UIColor colorWithHex:@"#ff7575"];
+```
+要设置图片的前景色一定要设置UIImage的渲染模式：
+
+1.UIImageRenderingModeAutomatic：根据图片的使用环境和所处的绘图上下文自动调整渲染模式。
+2.UIImageRenderingModeAlwaysOriginal：始终绘制图片原始状态，不使用Tint Color。  
+3.UIImageRenderingModeAlwaysTemplate：始终根据TintColor绘制图片，忽略图片的颜色信息。  
+－－（网上摘抄，与君共勉）
+
+2. UITabbar:
+```
+[[UITabBar appearance] setTintColor:[UIColor colorWithHex:@"#ff7575"]];
+```
+会讲tabbar上前景色设置成特定的颜色，忽略icon和title本身的颜色
+
+4. UINavigationBar:
+```
+[bar setBarTintColor:[UIColor colorWithHex:@"ff7575"]];
+```
