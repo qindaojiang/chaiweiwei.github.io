@@ -6,8 +6,9 @@
 title: vivi的蜡笔小男神
 subtitle:
 description:
-author: chaiweiwei~vivi
-language:
+author: ~vivi~
+language: zh-CN #中国人嘛，用中文
+email: 1119191759@qq.com #你的联系邮箱
 timezone:
 
 # URL
@@ -60,10 +61,12 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+disqus_shortname:
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
