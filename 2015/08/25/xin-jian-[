@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://github.com/chaiweiwei/assets/target.png">
 <meta property="og:image" content="https://github.com/chaiweiwei/assets/setting.png">
 <meta property="og:image" content="https://github.com/chaiweiwei/assets/pch.png">
-<meta property="og:updated_time" content="2016-01-25T03:27:23.000Z">
+<meta property="og:updated_time" content="2016-03-02T09:38:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新建一个项目可能的问题">
 <meta name="twitter:description" content="最近本来想温习一下在storyboard中界面之间的跳转和传值问题的，毕竟这样“搭”的方式确实比代码写要快的多，没想到啊，很久没用了也生疏了，在处理界面跳转中也就连线比较熟悉了。。。。
